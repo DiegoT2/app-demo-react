@@ -6,7 +6,7 @@ import Logo from './images/icon_logo.png';
 function NavBar() {
   return(
     <header>
-      <img src={Banner}/>
+      <img class="banner" src={Banner}/>
       
   <nav>
     <div class="nav-wrapper grey darken-3">
