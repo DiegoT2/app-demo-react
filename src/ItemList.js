@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import Item from './Item.js'
 
 const ItemList = ({ products }) => {
@@ -11,7 +11,6 @@ const ItemList = ({ products }) => {
                     title={product.titulo} 
                     image={product.imagen}  
                     price={product.precio}
-                    talle={product.talle}
                     initial = {product.initial}
                     stock = {product.stock}
                 />   
@@ -20,4 +19,5 @@ const ItemList = ({ products }) => {
         </section>
     )
 }
+
 export default ItemList

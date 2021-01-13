@@ -1,25 +1,24 @@
 import React, { useState , useEffect } from 'react'
-import Item from './Item.js'
 import ItemList from './ItemList.js'
-import Contador from './Contador.js'
 import "./ItemListContainer.css"
-
+//import zapatillaNiños from './images/zapatillas-niños-deportiva.jpg';
+//import zapatillaMujer from './images/zapatillas-mujer-deportiva.jpg';
+//import zapatillaHombre from './images/zapatillas-hombre-deportiva.jpg';
 
 const products = [{
     id: 1,
     titulo: "Zapatillas niño",
     precio: "850",
-    //imagen: "",
+    //imagen: {zapatillaNiños},
     talle: "28",
     description: "...zapatillas niño...",
     stock: 3,
     initial: 1
-
   },{
     id: 2,
     titulo: "Zapatillas mujer",
     precio: "1050",
-    //imagen: "",
+    //imagen: {zapatillaMujer},
     talle: "38",
     description: "...zapatillas mujer...",
     stock: 5,
@@ -28,7 +27,7 @@ const products = [{
     id: 3,
     titulo: "Zapatillas hombre",
     precio: "1200",
-    //imagen: "",
+    //imagen: {zapatillaHombre},
     talle: "42",
     description: "...zapatillas hombre...",
     stock: 6,
@@ -81,21 +80,5 @@ const ItemListContainer = ({greeting}) => {
     )
 }
 
-//                     <Contador 
-//                       contador={contador} 
-//                       restarContador={restarContador}
-//                       aumentarContador={aumentarContador}
-//                       resetearContador={resetearContador}
-//                     />
-                    
-//                     <button className="addToCart" onClick = {() => {console.log(contador)}}>add to cart</button>
-//                 </article>
-                               
-               
-//             </section>
-
-//         </div>
-//     )
-// }
 
 export default ItemListContainer

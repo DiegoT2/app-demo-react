@@ -2,11 +2,12 @@ import React from 'react'
 import './NavBar.css';
 import Banner from './images/banner_base.png';
 import Logo from './images/icon_logo.png';
+import "materialize-css/dist/css/materialize.css";
 
 function NavBar() {
   return(
     <header>
-      <img class="banner" src={Banner}/>
+      <img class="responsive-img" src={Banner}/>
       
   <nav>
     <div class="nav-wrapper grey darken-3">
