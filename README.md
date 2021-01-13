@@ -1,3 +1,10 @@
+La pagina esta en proceso, se ve en la pagina inicial todos los productos, cada uno tiene un vinculo clickeable para acceder a ese producto en detalle donde se ve su descripcion, su foto (mas adelante) y el stock disponible para comprar.
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
