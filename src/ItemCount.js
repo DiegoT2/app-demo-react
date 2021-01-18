@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/*import React, { useState } from 'react'
 
 const ItemCount = ({ initial, stock }) => {
 
@@ -34,6 +34,35 @@ const ItemCount = ({ initial, stock }) => {
                 <button className="addToCart" onClick = { onAdd }>add to cart</button>
             </div>
         </div>
+    )
+}*/
+
+import React from 'react'
+import { Link } from 'react-router-dom';
+
+const ItemCount = ({ text, carrito, estado, suma, resta, contador, item}) => {
+
+    return (
+        <>
+
+            {estado ?
+            (<>
+            <div className="contador">
+                <button onClick={suma} className="buttonProd">+</button>
+                <p>{contador}</p>
+                <button onClick={resta} className="buttonProd">-</button>
+            </div>    
+            <div>
+                <button className="addToCart" onClick={ () => carrito(item)}>add to cart</button>
+            </div>
+            </>)  
+            
+            :(<Link to ="/carrito">
+                <h3>{text}</h3>
+                <button className="addToCart" >Terminar compra</button>
+            </Link>)
+            }
+        </>
     )
 }
 

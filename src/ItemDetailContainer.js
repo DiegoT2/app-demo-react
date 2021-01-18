@@ -8,29 +8,32 @@ const products = [{
     id: 1,
     titulo: "Zapatillas niño",
     precio: "850",
-    imagen: "./images/zapatillas-niños-deportiva.jpg",
+    imagen: "zapatillas-niños-deportiva.jpg",
     talle: "28",
     description: "...zapatillas niño...",
     stock: 3,
-    initial: 1
+    initial: 1,
+    categoryId: "niño",
   },{
     id: 2,
     titulo: "Zapatillas mujer",
     precio: "1050",
-    imagen: "./images/zapatillas-mujer-deportiva.jpg",
+    imagen: "zapatillas-mujer-deportiva.jpg",
     talle: "38",
     description: "...zapatillas mujer...",
     stock: 5,
-    initial: 2
+    initial: 2,
+    categoryId: "mujer",
   },{
     id: 3,
     titulo: "Zapatillas hombre",
     precio: "1200",
-    imagen: "./images/zapatillas-hombre-deportiva.jpg",
+    imagen: "zapatillas-hombre-deportiva.jpg",
     talle: "42",
     description: "...zapatillas hombre...",
     stock: 6,
-    initial: 1
+    initial: 1,
+    categoryId: "hombre",
   }
   ]
 

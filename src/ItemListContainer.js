@@ -6,53 +6,42 @@ import "./ItemListContainer.css"
 //import zapatillaHombre from './images/zapatillas-hombre-deportiva.jpg';
 
 const products = [{
-    id: 1,
-    titulo: "Zapatillas niño",
-    precio: "850",
-    //imagen: {zapatillaNiños},
-    talle: "28",
-    description: "...zapatillas niño...",
-    stock: 3,
-    initial: 1
-  },{
-    id: 2,
-    titulo: "Zapatillas mujer",
-    precio: "1050",
-    //imagen: {zapatillaMujer},
-    talle: "38",
-    description: "...zapatillas mujer...",
-    stock: 5,
-    initial: 2
-  },{
-    id: 3,
-    titulo: "Zapatillas hombre",
-    precio: "1200",
-    //imagen: {zapatillaHombre},
-    talle: "42",
-    description: "...zapatillas hombre...",
-    stock: 6,
-    initial: 1
-  }
-  ]
+  id: 1,
+  titulo: "Zapatillas niño",
+  precio: "850",
+  imagen: "zapatillas-niños-deportiva.jpg",
+  talle: "28",
+  description: "...zapatillas niño...",
+  stock: 3,
+  initial: 1,
+  categoryId: "niño",
+},{
+  id: 2,
+  titulo: "Zapatillas mujer",
+  precio: "1050",
+  imagen: "zapatillas-mujer-deportiva.jpg",
+  talle: "38",
+  description: "...zapatillas mujer...",
+  stock: 5,
+  initial: 2,
+  categoryId: "mujer",
+},{
+  id: 3,
+  titulo: "Zapatillas hombre",
+  precio: "1200",
+  imagen: "zapatillas-hombre-deportiva.jpg",
+  talle: "42",
+  description: "...zapatillas hombre...",
+  stock: 6,
+  initial: 1,
+  categoryId: "hombre",
+}
+]
 
 const ItemListContainer = ({greeting}) => {
 
   
 
-    const [contador,setContador] = useState(0)
-
-
-    const aumentarContador = () => {
-        setContador(contador + 1)
-    }
-
-    const restarContador = () => {
-        setContador(contador - 1)
-    }
-
-    const resetearContador = () => {
-        setContador(0)
-    }
 
     
     const [ items, setItems ] = useState([])
