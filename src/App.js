@@ -25,11 +25,7 @@ import Carrito from "./Carrito.js"
             </Route>
             <Route exact path="/category/:id">
                 <ItemListContainer
-                    greeting="Products"/>
-            </Route>
-            <Route exact path="/ItemListContainer">
-                <ItemListContainer
-                    greeting="Products"/>
+                    greeting="category"/>
             </Route>
             <Route exact path="/carrito">
                 <Carrito/> 

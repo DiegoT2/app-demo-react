@@ -6,6 +6,11 @@ import "materialize-css/dist/css/materialize.css";
 import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 
+const categories = [
+  {categoryId: "Mujer"},
+  {categoryId: "Hombre"},
+  {categoryId: "Niño"}
+]
 
 function NavBar() {
   return(
@@ -17,11 +22,15 @@ function NavBar() {
       <ul id="nav-mobile" className="left hide-on-med-and-down">
         <li><Link to="/"><a href=""><img src={Logo}/></a></Link></li>
 
+         {categories.map( category => 
+          <li>
+            <Link to={`/category/${category.categoryId}`}>
+              <a>{category.categoryId}</a>
+            </Link> 
+          </li>
+          )}
+
         <li  class="right-align"><Link to="/carrito"><CartWidget/></Link></li>
-        {/* <li><a href=""><img src={Logo}/></a></li> */}
-        {/* <li><a href="">Hombre</a></li>
-        <li><a href="">Mujer</a></li>
-        <li><a href="">Niño</a></li> */}
       </ul>
     </div>
   </nav>
