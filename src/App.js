@@ -1,11 +1,12 @@
-import React , { useState , useEffect } from "react";
+import React  from "react";
 import './index.css';
 import NavBar from './NavBar';
 import "materialize-css/dist/css/materialize.css";
 import ItemListContainer from "./ItemListContainer.js";
 import ItemDetailContainer from './ItemDetailContainer'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Carrito from "./Carrito.js"
+import Carrito from "./Carrito.js";
+import CartProvider from "./CartContext.js";
 
   const App = () => {
 
@@ -13,7 +14,7 @@ import Carrito from "./Carrito.js"
         <>
         <BrowserRouter>
         <NavBar/>
-        {/* <CartWidget/> */}
+        <CartProvider>
         <Switch>
             <Route exact path="/">
                 <ItemListContainer
@@ -32,6 +33,7 @@ import Carrito from "./Carrito.js"
             </Route>
         </Switch>
         {/* <Footer/> */}
+        </CartProvider>
         </BrowserRouter>
         </>
     )

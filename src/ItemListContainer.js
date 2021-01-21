@@ -41,38 +41,11 @@ const products = [{
 
 const ItemListContainer = ({greeting}) => {
 
-//     const [ items, setItems ] = useState([])
-
-//     useEffect(() => {
-//       const promesa = new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//           resolve(products)
-//           reject("No se pudieron cargar los productos")   
-//         }, 2000);
-//       })
-  
-//       promesa.then( result => setItems(result) ) 
-//       promesa.catch( err => console.log("Algo salio mal") ) 
-  
-//     }, []);
-
-//     return (
-//         <div className="itemList">
-//             <h1>{greeting}</h1>
-//             {products.length > 1 
-//             ? <ItemList products = { products } /> 
-//             : <h2>Loading</h2>}
-//         </div>
-//     )
-// }
-
 const [ items, setItems ] = useState([])
 
 const {id} = useParams()
 
 useEffect(() => {
-  // Tomo los productos que me envía App y, si hay un id, filtro todos para agarrar sólo los que
-  // tengan el id señalado
   if(id){
       const category = products.filter(product => product.categoryId === id )
       setItems(category)

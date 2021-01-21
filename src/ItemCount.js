@@ -1,66 +1,55 @@
-/*import React, { useState } from 'react'
-
-const ItemCount = ({ initial, stock }) => {
-
-    const [contador, setContador] = useState(initial)
-
-    const aumentarContador = () => {
-        if (contador < stock){
-            setContador(contador + 1)
-        }else{
-            setContador( stock )
-        }        
-    }
-
-    const restarContador = () => {
-        if(contador <= initial){
-            setContador(initial)
-        }else
-            setContador(contador - 1)
-    }
-
-    const onAdd = () => {
-        console.log(contador)
-    }
-
-    return (
-        <div>
-            <div className="contador">
-                <button onClick={ restarContador } className="buttonProd">-</button>
-                <p>{contador}</p>
-                <button onClick={ aumentarContador } className="buttonProd">+</button>
-            </div>    
-            <div>
-                <button className="addToCart" onClick = { onAdd }>add to cart</button>
-            </div>
-        </div>
-    )
-}*/
-
-import React from 'react'
+import React, {useState , useContext} from 'react'
 import { Link } from 'react-router-dom';
+import {CartContext} from "./CartContext.js"
 
-const ItemCount = ({ text, carrito, estado, suma, resta, contador, item}) => {
+const ItemCount = ({ stock, initial, name, item, key}) => {
+
+    const [ contDetail, setContDetail] = useState(initial);
+    const [ estadoBoton, setEstadoBoton] = useState(true);
+    const { addToCart } = useContext(CartContext)
+
+    const aumentarCont = ()=> {
+        if (contDetail < stock){
+            setContDetail(contDetail + 1)
+        }else{
+            setContDetail(stock)
+        }
+    }
+
+    const restarCont = () => {
+        if(contDetail > initial){
+            setContDetail(contDetail - 1)
+        }
+    }
+
+    const agregarCarrito = () => {
+        addToCart(item, contDetail, key)
+        setEstadoBoton(false)
+    }
 
     return (
         <>
 
-            {estado ?
+            {estadoBoton ?
             (<>
             <div className="contador">
-                <button onClick={suma} className="buttonProd">+</button>
-                <p>{contador}</p>
-                <button onClick={resta} className="buttonProd">-</button>
+                <button onClick={aumentarCont} className="buttonProd">+</button>
+                <p>{contDetail}</p>
+                <button onClick={restarCont} className="buttonProd">-</button>
             </div>    
             <div>
-                <button className="addToCart" onClick={ () => carrito(item)}>add to cart</button>
+                <button  onClick={ agregarCarrito }>add to cart</button>
             </div>
             </>)  
             
-            :(<Link to ="/carrito">
-                <h3>{text}</h3>
-                <button className="addToCart" >Terminar compra</button>
-            </Link>)
+            :(
+            <>
+            <h3>{"Agregaste " + contDetail + " " + name + " al carrito"}</h3>
+            <Link to ="/carrito">
+                <button  >Terminar compra</button>
+            </Link>
+            </>
+            )
             }
         </>
     )

@@ -22,7 +22,7 @@ const products = [{
     talle: "38",
     description: "...zapatillas mujer...",
     stock: 5,
-    initial: 2,
+    initial: 1,
     categoryId: "mujer",
   },{
     id: 3,
