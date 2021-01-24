@@ -30,7 +30,7 @@ function NavBar() {
           </li>
           )}
 
-        <li  class="right-align"><Link to="/carrito"><CartWidget/></Link></li>
+        <li  class="right-align"><Link to="/cart"><CartWidget/></Link></li>
       </ul>
     </div>
   </nav>

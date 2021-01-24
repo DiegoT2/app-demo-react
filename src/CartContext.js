@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, createContext} from "react"
 
-//me trae el Provider y el Consumer
-export  const CartContext = React.createContext();
+
+export  const CartContext = createContext([]);
 
 const CartProvider = ({children}) => {
 
     const [cartList, setCartList] = useState([])
     const [quantity, setQuantity] = useState(0)
-    const [total, setTotal] = useState()
+    let [total, setTotal] = useState()
 
     useEffect(()=>{
         let tot =  0;
@@ -25,31 +25,33 @@ const CartProvider = ({children}) => {
         const item = cartList.find( p => p.id === id)
         if(item === undefined){
             return false
+        }else{
+            return true
         }
     }
 
-    const addItem = (product, contador, id ) => {
+    const addItem = (item, contador, id ) => {
         if(isInCart(id)){
-            const products = cartList.find(p => p.id === id)
+            const products = cartList.find(product => product.id === id)
             const newCant = products.amount + contador
             const newProduct =  {
                 id: products.id,
-                name: products.name,
-                image: products.image,
-                price: products.price,
+                name: products.titulo,
+                image: products.imagen,
+                price: products.precio,
                 amount: newCant
             } 
 
-            const oldCart = cartList.filter(product => product.id != id)  
-            const newCart = [...oldCart, newProduct] // me quedo con oldCart y sumo newProduct a la lista
+            const oldCart = cartList.filter(item => item.id != id)  
+            const newCart = [...oldCart, newProduct]
 
             setCartList(newCart)
         }else{
             const newItem = {
-                id:  product.id,
-                name: product.name,
-                image: product.image,
-                price: product.price,
+                id:  item.id,
+                name: item.titulo,
+                image: item.imagen,
+                price: item.precio,
                 amount: contador
             }
             setCartList([...cartList, newItem])
@@ -61,7 +63,7 @@ const CartProvider = ({children}) => {
         setCartList(newCart) 
     }
 
-    const clearCart = () => {
+    let clearCart = () => {
         setCartList([])
         setQuantity(0)
     }

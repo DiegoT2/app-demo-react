@@ -5,7 +5,7 @@ import "materialize-css/dist/css/materialize.css";
 import ItemListContainer from "./ItemListContainer.js";
 import ItemDetailContainer from './ItemDetailContainer'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Carrito from "./Carrito.js";
+import Cart from "./Cart.js";
 import CartProvider from "./CartContext.js";
 
   const App = () => {
@@ -28,8 +28,8 @@ import CartProvider from "./CartContext.js";
                 <ItemListContainer
                     greeting="category"/>
             </Route>
-            <Route exact path="/carrito">
-                <Carrito/> 
+            <Route exact path="/cart">
+                <Cart/> 
             </Route>
         </Switch>
         {/* <Footer/> */}

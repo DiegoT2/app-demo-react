@@ -2,17 +2,20 @@ import React, {useState , useContext} from 'react'
 import { Link } from 'react-router-dom';
 import {CartContext} from "./CartContext.js"
 
-const ItemCount = ({ stock, initial, name, item, key}) => {
+const ItemCount = ({ stock, initial, name, item, id}) => {
 
     const [ contDetail, setContDetail] = useState(initial);
     const [ estadoBoton, setEstadoBoton] = useState(true);
-    const { addToCart } = useContext(CartContext)
+    const useCartContext = useContext(CartContext)
+    let {addItem} = useContext(CartContext)
 
+    console.log(initial)
     const aumentarCont = ()=> {
         if (contDetail < stock){
             setContDetail(contDetail + 1)
         }else{
             setContDetail(stock)
+            
         }
     }
 
@@ -23,7 +26,7 @@ const ItemCount = ({ stock, initial, name, item, key}) => {
     }
 
     const agregarCarrito = () => {
-        addToCart(item, contDetail, key)
+        addItem(item, contDetail, id)
         setEstadoBoton(false)
     }
 
@@ -38,14 +41,14 @@ const ItemCount = ({ stock, initial, name, item, key}) => {
                 <button onClick={restarCont} className="buttonProd">-</button>
             </div>    
             <div>
-                <button  onClick={ agregarCarrito }>add to cart</button>
+                <button  onClick={ agregarCarrito }> Agregar al carrito </button>
             </div>
             </>)  
             
             :(
             <>
             <h3>{"Agregaste " + contDetail + " " + name + " al carrito"}</h3>
-            <Link to ="/carrito">
+            <Link to ="/cart">
                 <button  >Terminar compra</button>
             </Link>
             </>

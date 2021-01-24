@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom"
 const products = [{
     id: 1,
     titulo: "Zapatillas niño",
-    precio: "850",
+    precio: 850,
     imagen: "zapatillas-niños-deportiva.jpg",
     talle: "28",
     description: "...zapatillas niño...",
@@ -17,7 +17,7 @@ const products = [{
   },{
     id: 2,
     titulo: "Zapatillas mujer",
-    precio: "1050",
+    precio: 1050,
     imagen: "zapatillas-mujer-deportiva.jpg",
     talle: "38",
     description: "...zapatillas mujer...",
@@ -27,7 +27,7 @@ const products = [{
   },{
     id: 3,
     titulo: "Zapatillas hombre",
-    precio: "1200",
+    precio: 1200,
     imagen: "zapatillas-hombre-deportiva.jpg",
     talle: "42",
     description: "...zapatillas hombre...",
@@ -40,7 +40,7 @@ const products = [{
   const ItemDetailContainer = ({ }) => {
     
     
-    const [ item, setItem ] = useState()
+    const [ item, setItem ] = useState(null)
     const { id } = useParams()
 
     useEffect(() => {
@@ -61,6 +61,7 @@ const products = [{
         <div>
             { item ?
             <ItemDetail
+             item={item}
              id={item.id}
              title={item.titulo}     
              price={item.precio}

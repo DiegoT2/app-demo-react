@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import ItemCount from './ItemCount.js'
 
-const ItemDetail = ({title, image, description, price, stock, initial, item }) => {
+const ItemDetail = ({title, image, description, price, stock, initial, item, id }) => {
 
 
     let img = require(`./images/${image}`)
-
+    console.log(initial)
+    console.log(item)
     return (
         <>
         <h1 className="titleDetail"> {title} </h1> 
@@ -20,11 +21,11 @@ const ItemDetail = ({title, image, description, price, stock, initial, item }) =
             { stock ? <p>{stock} in Stock</p> :<h1>Not in stock</h1> }
             &nbsp;
             <ItemCount 
-                initial={initial} 
-                stock={stock} 
-                item={item}
-                name = {title}
-                />
+            id = {id}
+            stock={stock} 
+            initial={item.initial} 
+            name = {title}
+            item={item}/>
     
                 </section>
                 
