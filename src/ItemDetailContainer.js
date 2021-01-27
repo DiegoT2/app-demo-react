@@ -49,7 +49,7 @@ const products = [{
             const i = products.find(product => product.id == id)
             console.log(i)
             resolve(i); 
-        }, 2000);
+        }, 500);
         }
         )
         promesa.then( result => setItem(result) ) 
@@ -71,7 +71,7 @@ const products = [{
              initial={item.initial}
              />
              :
-             <h2>Loading</h2>}
+             <h2>Loading...</h2>}
         </div>
     )
 }

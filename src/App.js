@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useEffect }  from "react";
 import './index.css';
 import NavBar from './NavBar';
 import "materialize-css/dist/css/materialize.css";
@@ -8,7 +8,37 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Cart from "./Cart.js";
 import CartProvider from "./CartContext.js";
 
+import {firestore} from "./firebaseConfig.js"
+
+
+
+
   const App = () => {
+
+    useEffect(()=>{
+        const db = firestore
+        const collection = db.collection("items")
+        const query = collection.get()
+
+        query
+        .then((resultado)=>{
+            const items_array = resultado.docs
+            
+            
+            items_array.forEach(item=>{
+                const producto_final = {
+                    id : item.id,
+                    ...item.data()
+                }
+                console.log(producto_final)
+            })
+        })
+        .catch(()=>{
+            console.log("fallo")
+        })
+    })
+
+
 
     return (
         <>
