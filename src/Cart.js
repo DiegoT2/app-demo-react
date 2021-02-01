@@ -35,9 +35,14 @@ const Cart = () => {
     <div>    
     <h3>{total}</h3>
     <div>
-        <button onClick={clearCart}>Borrar el carrito</button>
+        <button onClick={clearCart}>Borrar el carrito</button> 
         <button>Pagar</button>
     </div>
+    {/* <div>
+        <input type="text">Nombre</input>
+        <input type="text">Telefono</input> ------ Cuando agrego esto el carrito no carga
+        <input type="text">E-mail</input>
+    </div> */}
     </div>
     } 
     
