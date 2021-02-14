@@ -6,25 +6,25 @@ const ItemDetail = ({title, image, description, price, stock, initial, item, id 
 
     //let img = require(`./images/${image}`)
     // console.log(initial)
-    // console.log(item)
+    console.log(item)
     return (
         <>
-        <h1 className="titleDetail"> {title} </h1> 
+        <h1 className="titleDetail"> {item.titulo} </h1> 
         <div className="itemDetail">
             <section className="itemBox">
-                <img src ={ image } alt="alt" className="itemImg"></img>  
-                <p className="description">{description}</p>
+                <img src ={ item.imagen } alt="alt" className="itemImg"></img>  
+                <p className="description">{item.descripcion}</p>
             </section>
             <section className="itemBox">
-            <h1> ${price} </h1>
+            <h1> ${item.precio} </h1>
             &nbsp;
-            { stock ? <p>{stock} in Stock</p> :<h1>Not in stock</h1> }
+            { item.stock ? <p>{item.stock} in Stock</p> :<h1>Not in stock</h1> }
             &nbsp;
             <ItemCount 
-            id = {id}
-            stock={stock} 
+            id = {item.id}
+            stock={item.stock} 
             initial={item.initial} 
-            name = {title}
+            name = {item.titulo}
             item={item}/>
     
                 </section>

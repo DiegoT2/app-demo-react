@@ -55,7 +55,7 @@ import CartProvider from "./CartContext.js";
             <Route exact path="/item/:id">
                 <ItemDetailContainer/>
             </Route>
-            <Route exact path="/category/:id">
+            <Route exact path="/category/:categoryId">
                 <ItemListContainer
                     greeting="category"/>
             </Route>

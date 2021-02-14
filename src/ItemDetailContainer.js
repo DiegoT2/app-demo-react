@@ -54,10 +54,10 @@ console.log(products)
       .then((resultado)=>{
           const items_array = resultado.docs
           
-          items_array.forEach(item=>{
+          items_array.forEach(itemm=>{
               const producto_final = {
-                  id : item.id,
-                  ...item.data()
+                  id : itemm.id,
+                  ...itemm.data()
               }
               products.push(producto_final)
           })
@@ -86,6 +86,8 @@ console.log(products)
         promesa.catch( err => console.log("Algo salio mal") ) 
 
     },  [id]);
+
+    console.log(item)
 
     return (
         <div>

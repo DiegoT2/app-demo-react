@@ -9,8 +9,7 @@ import {firestore} from "./firebaseConfig.js"
 
 
 
-let products = []
-
+//let products = []
 
 // const products = [{
 //   id: 1,
@@ -47,13 +46,15 @@ let products = []
 
 const ItemListContainer = ({greeting}) => {
 
-
+    const [products, setProducts] = useState([])
+    // const [ items, setItems ] = useState([])
+    // const {id} = useParams()
 
   useEffect(()=>{
     const db = firestore
     const collection = db.collection("Products")
     const query = collection.get()
-
+    let array_vacio = []
     query
     .then((resultado)=>{
         const items_array = resultado.docs
@@ -63,40 +64,42 @@ const ItemListContainer = ({greeting}) => {
                 id : item.id,
                 ...item.data()
             }
-            products.push(producto_final)
+            
+            array_vacio.push(producto_final)
         })
+        setProducts(array_vacio)
     })
     .catch(()=>{
         console.log("fallo")
     })
-})
+
+},[])
 
 
 
+// const [ items, setItems ] = useState([])
 
-const [ items, setItems ] = useState([])
+// const {id} = useParams()
 
-const {id} = useParams()
+// useEffect(() => {
+//   if(id){
+//       const category = products.filter(product => product.categoryId === id )
+//       setItems(category)
+//       console.log(category)
+//   }
+//   else{
+//       setItems(products)
+//   }
 
-useEffect(() => {
-  if(id){
-      const category = products.filter(product => product.categoryId === id )
-      setItems(category)
-      console.log(category)
-  }
-  else{
-      setItems(products)
-  }
-
-}, [id, products]);
+// }, [id, products]);
 
 return (
     <div className="itemList">
-      {id ? <h1>{id}</h1>
+      {/* {id ? <h1>{id}</h1>
       :<h1>{greeting}</h1>  
-      } 
+      }  */}
         {products.length > 0 
-        ? <ItemList products = { items } /> 
+        ? <ItemList products = { products } /> 
         : <h1 className="loading">Loading...</h1>}
     </div>
 )
