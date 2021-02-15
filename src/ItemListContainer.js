@@ -1,48 +1,13 @@
 import React, { useState , useEffect } from 'react'
 import ItemList from './ItemList.js'
-import "./ItemListContainer.css"
-import {useParams} from 'react-router-dom'
+//import "./ItemListContainer.css"
+//import {useParams} from 'react-router-dom'
 import {firestore} from "./firebaseConfig.js"
-//import zapatillaNiños from './images/zapatillas-niños-deportiva.jpg';
-//import zapatillaMujer from './images/zapatillas-mujer-deportiva.jpg';
-//import zapatillaHombre from './images/zapatillas-hombre-deportiva.jpg';
+import {Container, Row, Col} from 'react-bootstrap'
 
 
 
-//let products = []
 
-// const products = [{
-//   id: 1,
-//   titulo: "Zapatillas niño",
-//   precio: "850",
-//   imagen: "zapatillas-niños-deportiva.jpg",
-//   talle: "28",
-//   description: "...zapatillas niño...",
-//   stock: 3,
-//   initial: 1,
-//   categoryId: "Niño",
-// },{
-//   id: 2,
-//   titulo: "Zapatillas mujer",
-//   precio: "1050",
-//   imagen: "zapatillas-mujer-deportiva.jpg",
-//   talle: "38",
-//   description: "...zapatillas mujer...",
-//   stock: 5,
-//   initial: 2,
-//   categoryId: "Mujer",
-// },{
-//   id: 3,
-//   titulo: "Zapatillas hombre",
-//   precio: "1200",
-//   imagen: "zapatillas-hombre-deportiva.jpg",
-//   talle: "42",
-//   description: "...zapatillas hombre...",
-//   stock: 6,
-//   initial: 1,
-//   categoryId: "Hombre",
-// }
-// ]
 
 const ItemListContainer = ({greeting}) => {
 
@@ -94,14 +59,23 @@ const ItemListContainer = ({greeting}) => {
 // }, [id, products]);
 
 return (
-    <div className="itemList">
-      {/* {id ? <h1>{id}</h1>
-      :<h1>{greeting}</h1>  
-      }  */}
+    <>
+        
+    <div>
+        <h1>{greeting}</h1>
+        <Container fluid>
         {products.length > 0 
-        ? <ItemList products = { products } /> 
+        ?
+        
+        <ItemList products = { products }
+        
+        />
+        
         : <h1 className="loading">Loading...</h1>}
+        </Container>
     </div>
+        
+    </>
 )
 }
 

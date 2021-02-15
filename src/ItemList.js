@@ -1,22 +1,24 @@
 import React from 'react'
 import Item from './Item.js'
 
+import {Container, Row, Col} from 'react-bootstrap'
+
 const ItemList = ({ products }) => {
 
     return (
-        <section className="products-container">
+        
+        <>
+        <Row>
             { products.map( product => 
+            
                 <Item 
-                    id={product.id} 
-                    title={product.titulo} 
-                    image={product.imagen}  
-                    price={product.precio}
-                    initial = {product.initial}
-                    stock = {product.stock}
-                />   
+                    product={product}              
+                />
+            
             )}
+        </Row>
 
-        </section>
+        </>
     )
 }
 

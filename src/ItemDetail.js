@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import ItemCount from './ItemCount.js'
 
-const ItemDetail = ({title, image, description, price, stock, initial, item, id }) => {
-
-
+const ItemDetail = ({item}) => {
     //let img = require(`./images/${image}`)
     // console.log(initial)
     console.log(item)

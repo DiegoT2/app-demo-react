@@ -1,16 +1,31 @@
 import React from "react"
-import "./ItemListContainer.css"
-import ItemCount from './ItemCount.js'
+//import "./ItemListContainer.css"
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card'
+import {Container, Row, Col} from 'react-bootstrap'
 
-  const Item = ({title, image, id}) => {
-    //let img = require(`./images/${image}`)
+
+
+  const Item = ({product}) => {
     return (
-            <article >
-                <Link to={"/item/" + id}><img src={image}></img></Link>
-                <h3>{title}</h3>
-                <Link to={"/item/" + id} > More info </Link>
-            </article>
+            <>
+<div>
+<Col>
+  
+<Card style={{ width: '18rem' }}>
+  <Link to={"/item/" + product.id}>
+    <Card.Title>{product.titulo}</Card.Title>
+    <Card.Img style={{ width: '18rem' }} variant="top" src={product.imagen} />
+    <Card.Body>
+      <Card.Text>{product.categoryId} </Card.Text>
+    </Card.Body>
+  </Link>
+</Card>
+
+</Col>
+</div>
+
+</>
     )
 }
 

@@ -40,7 +40,7 @@ const Cart = () => {
 
             cartList.forEach(item => {
                 console.log(item)
-                bache.update(collection.doc(item.id),{stock:0}) //falta agregar la consulta de stock y modificacion correcta
+                bache.update(collection.doc(item.id),{stock: 5 - item.amount}) //falta agregar la consulta de stock y modificacion correcta
             });
 
         bache
@@ -56,9 +56,6 @@ const Cart = () => {
         console.log(err)
     })
     }
-
-
-    
     
     return (
     <>   
@@ -94,6 +91,7 @@ const Cart = () => {
     <Link to="/"><button>Volver a la tienda</button></Link>
     </div>)
     }
+    { id ? <p>Orden Confirmada! Nro de Orden {id}</p> : null}
 </>)}
 
 export default Cart
