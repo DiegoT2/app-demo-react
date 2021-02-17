@@ -1,25 +1,17 @@
 import React from 'react'
 import Item from './Item.js'
+import { Row } from 'react-bootstrap'
 
-import {Container, Row, Col} from 'react-bootstrap'
-
-const ItemList = ({ products }) => {
+const ItemList = ({ productos }) => {
 
     return (
-        
         <>
         <Row>
-            { products.map( product => 
-            
-                <Item 
-                    product={product}              
-                />
-            
+            { productos.map( product =>
+                <Item product={product} />
             )}
         </Row>
-
         </>
-    )
-}
+    )}
 
 export default ItemList

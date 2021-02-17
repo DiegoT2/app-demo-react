@@ -1,61 +1,59 @@
 import React, {useState , useContext} from 'react'
 import { Link } from 'react-router-dom';
 import {CartContext} from "./CartContext.js"
+import {Row, Col} from 'react-bootstrap'
 
-const ItemCount = ({ stock, initial, name, item, id}) => {
+const ItemCount = ({ item }) => {
 
-    const [ contDetail, setContDetail] = useState(initial);
+    const [ contDetail, setContDetail] = useState(item.initial);
     const [ estadoBoton, setEstadoBoton] = useState(true);
-    const useCartContext = useContext(CartContext)
-    let {addItem} = useContext(CartContext)
+    let { addItem } = useContext(CartContext)
 
-    console.log(initial)
     const aumentarCont = ()=> {
-        if (contDetail < stock){
+        if (contDetail < item.stock){
             setContDetail(contDetail + 1)
         }else{
-            setContDetail(stock)
-            
+            setContDetail(item.stock)
         }
     }
 
     const restarCont = () => {
-        if(contDetail > initial){
+        if(contDetail > item.initial){
             setContDetail(contDetail - 1)
         }
     }
 
     const agregarCarrito = () => {
-        addItem(item, contDetail, id)
+        addItem(item, contDetail, item.id)
         setEstadoBoton(false)
     }
 
     return (
         <>
-
             {estadoBoton ?
             (<>
-            <div className="contador">
-                <button onClick={aumentarCont} className="buttonProd">+</button>
-                <p>{contDetail}</p>
-                <button onClick={restarCont} className="buttonProd">-</button>
+            <div>
+                <Row>
+                    <Col> <p>{contDetail}</p> </Col>
+                    <Col>
+                        <button onClick={restarCont}> - </button>
+                        <button onClick={aumentarCont}> + </button>
+                    </Col>
+                </Row>
             </div>    
             <div>
                 <button  onClick={ agregarCarrito }> Agregar al carrito </button>
             </div>
             </>)  
-            
-            :(
-            <>
-            <h3>{"Agregaste " + contDetail + " " + name + " al carrito"}</h3>
+            :
+            (<>
+            <h3>{"Agregaste " + contDetail + " " + item.titulo + " al carrito"}</h3>
             <Link to ="/cart">
-                <button  >Terminar compra</button>
+                <button>Terminar compra</button>
             </Link>
-            </>
-            )
+            </>)
             }
         </>
-    )
-}
+    )}
 
 export default ItemCount

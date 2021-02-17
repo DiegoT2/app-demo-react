@@ -1,11 +1,33 @@
 import React from 'react'
-//import "materialize-css/dist/css/materialize.css";
+import ShopCart from "./images/shopping-cart.png"
+import { Link } from 'react-router-dom';
 
-function CartWidget() {
+function CartWidget({ quantity }) {
     return(
-    <a class="grey darken-3 right-align" href=""  style={{marginRight: 1 + 'em'}}><i class="material-icons ">add_shopping_cart</i></a>
-            
-    )
-}
+        <div
+        style={{
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Link to="/cart">
+          <img style={{ height: "32px" }} src={ShopCart} alt="Carrito" />{" "}
+          <span
+            style={{
+              position: "absolute",
+              fontSize: "15px",
+              bottom: "10px",
+              left: "15px",
+              fontWeight: "bold",
+            }}>
+            <p>
+            {quantity}
+            </p>
+          </span>
+        </Link>
+      </div>
+    )}
 
 export default CartWidget;

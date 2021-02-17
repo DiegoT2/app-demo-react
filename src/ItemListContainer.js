@@ -1,84 +1,68 @@
 import React, { useState , useEffect } from 'react'
 import ItemList from './ItemList.js'
-//import "./ItemListContainer.css"
-//import {useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import {firestore} from "./firebaseConfig.js"
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Spinner, Row, Col} from 'react-bootstrap'
 
-
-
-
-
-const ItemListContainer = ({greeting}) => {
-
-    const [products, setProducts] = useState([])
-    // const [ items, setItems ] = useState([])
-    // const {id} = useParams()
-
-  useEffect(()=>{
-    const db = firestore
-    const collection = db.collection("Products")
-    const query = collection.get()
-    let array_vacio = []
-    query
-    .then((resultado)=>{
-        const items_array = resultado.docs
-        
-        items_array.forEach(item=>{
-            const producto_final = {
-                id : item.id,
-                ...item.data()
-            }
-            
-            array_vacio.push(producto_final)
+function ItemListContainer() {
+    const [productos, setProductos] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const { category } = useParams();
+  
+    useEffect(() => {
+      obtenerProductos.then((resultado) => {
+        if (category) {
+          const productosFiltrados = resultado.filter(
+            (producto) => producto.categoryId === category
+          );
+          setProductos(productosFiltrados);
+        } else {
+          setProductos(resultado);
+        }
+        setLoading(false);
+      });
+    }, [category]);
+  
+    const obtenerProductos = new Promise((resolve, reject) => {
+      const db = firestore;
+      const collection = db.collection("Products");
+      const query = collection.get();
+      query
+        .then((result) => {
+          const collectionItems = result.docs.map((p) => ({
+            id: p.id,
+            ...p.data(),
+          }));
+          resolve(collectionItems);
         })
-        setProducts(array_vacio)
-    })
-    .catch(()=>{
-        console.log("fallo")
-    })
-
-},[])
-
-
-
-// const [ items, setItems ] = useState([])
-
-// const {id} = useParams()
-
-// useEffect(() => {
-//   if(id){
-//       const category = products.filter(product => product.categoryId === id )
-//       setItems(category)
-//       console.log(category)
-//   }
-//   else{
-//       setItems(products)
-//   }
-
-// }, [id, products]);
-
-return (
-    <>
-        
-    <div>
-        <h1>{greeting}</h1>
-        <Container fluid>
-        {products.length > 0 
-        ?
-        
-        <ItemList products = { products }
-        
-        />
-        
-        : <h1 className="loading">Loading...</h1>}
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  
+    return (
+      <div>
+        {loading ? (
+            <Container fluid >
+        <Row fluid>
+            <Col xl>
+          <Spinner style={{ marginLeft:"50%", marginTop:"6em", marginBottom:"4.5em"}} animation="border" variant="light" />
+          </Col> 
+        </Row>
         </Container>
-    </div>
-        
-    </>
-)
-}
-
-
+        ) : (
+          <div>
+            {category ? (
+              <h1 style={{textAlign:"center", marginTop:"1.5em"}}>{category}</h1>
+            ) : (
+              <> </>
+            )}
+            <h1 style={{textAlign:"center", marginTop:"1.5em", marginBottom:"1.5em"}}>It's dangerous to go alone! Take this!</h1>
+            <ItemList productos={productos} />
+          </div>
+        )}
+      </div>
+    );
+  }
 
 export default ItemListContainer

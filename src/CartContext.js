@@ -1,25 +1,20 @@
 import React, {useState, useEffect, createContext} from "react"
 
-
 export  const CartContext = createContext([]);
 
 const CartProvider = ({children}) => {
-
     const [cartList, setCartList] = useState([])
     const [quantity, setQuantity] = useState(0)
-    let [total, setTotal] = useState()
+    let   [total, setTotal] = useState()
 
     useEffect(()=>{
         let tot =  0;
         let totals = cartList.map( p => p.price * p.amount)
         totals.map(p => tot = tot+p )
         setTotal(tot)
-
         const cartQuantity = cartList.length
         setQuantity(cartQuantity)
-
     }, [cartList])
-
 
     const isInCart = (id) => {
         const item = cartList.find( p => p.id === id)
@@ -41,10 +36,8 @@ const CartProvider = ({children}) => {
                 price: products.precio,
                 amount: newCant
             } 
-
             const oldCart = cartList.filter(item => item.id != id)  
             const newCart = [...oldCart, newProduct]
-
             setCartList(newCart)
         }else{
             const newItem = {
@@ -69,10 +62,10 @@ const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{ cartList, addItem, removeItem, quantity, clearCart, total}}>
+        <CartContext.Provider 
+            value={{ cartList, addItem, removeItem, quantity, clearCart, total}}>
             {children}
         </CartContext.Provider>
-    )
-}
+    )}
 
 export default CartProvider
