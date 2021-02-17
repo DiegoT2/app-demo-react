@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/app-demo-react/static/css/main.460426b2.chunk.css",
+    "main.js": "/app-demo-react/static/js/main.c442be0c.chunk.js",
+    "main.js.map": "/app-demo-react/static/js/main.c442be0c.chunk.js.map",
+    "runtime-main.js": "/app-demo-react/static/js/runtime-main.951ea61b.js",
+    "runtime-main.js.map": "/app-demo-react/static/js/runtime-main.951ea61b.js.map",
+    "static/css/2.83b31fb4.chunk.css": "/app-demo-react/static/css/2.83b31fb4.chunk.css",
+    "static/js/2.db17ea43.chunk.js": "/app-demo-react/static/js/2.db17ea43.chunk.js",
+    "static/js/2.db17ea43.chunk.js.map": "/app-demo-react/static/js/2.db17ea43.chunk.js.map",
+    "index.html": "/app-demo-react/index.html",
+    "static/css/2.83b31fb4.chunk.css.map": "/app-demo-react/static/css/2.83b31fb4.chunk.css.map",
+    "static/css/main.460426b2.chunk.css.map": "/app-demo-react/static/css/main.460426b2.chunk.css.map",
+    "static/js/2.db17ea43.chunk.js.LICENSE.txt": "/app-demo-react/static/js/2.db17ea43.chunk.js.LICENSE.txt",
+    "static/media/icon_logo.a8eab065.png": "/app-demo-react/static/media/icon_logo.a8eab065.png",
+    "static/media/rupee.3e04c43b.png": "/app-demo-react/static/media/rupee.3e04c43b.png",
+    "static/media/shopping-cart.9fa1f5f3.png": "/app-demo-react/static/media/shopping-cart.9fa1f5f3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.951ea61b.js",
+    "static/css/2.83b31fb4.chunk.css",
+    "static/js/2.db17ea43.chunk.js",
+    "static/css/main.460426b2.chunk.css",
+    "static/js/main.c442be0c.chunk.js"
+  ]
+}

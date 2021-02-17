@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,yBACI,8CAAiD,CACjD,qBACF,CAEF,GAAK,wBAA4B","file":"main.460426b2.chunk.css","sourcesContent":["body, h1, h2, h3, h4, h5, h6, p {\r\n    font-family: 'Press Start 2P', cursive !important;\r\n    color: azure !important;\r\n  }\r\n\r\nh6 { font-size: 16px !important; }"]}
