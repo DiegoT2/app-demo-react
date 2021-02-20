@@ -13,7 +13,7 @@ const Cart = () => {
     const [ telefono, setTelefono ] = useState("")
     const [ email, setEmail ] = useState("")
     const [ id, setId] = useState("")
-    const {cartList, clearCart, removeItem, total} = useContext(CartContext)
+    const {cartList, clearCart, removeItem, quantity, total} = useContext(CartContext)
 
     const manejarCompra = (e) => {
         e.preventDefault()
@@ -34,7 +34,7 @@ const Cart = () => {
             const bache = firestore.batch()
             cartList.forEach(item => {
                 console.log(item)
-                bache.update(collection.doc(item.id),{stock: 5 - item.amount}) //falta agregar la consulta de stock y modificacion correcta
+                bache.update(collection.doc(item.id),{stock: item.stock - item.amount}) //falta agregar la consulta de stock y modificacion correcta
             });
 
         bache
@@ -93,6 +93,7 @@ const Cart = () => {
         </div>
         </Card>
         </Col>
+
     )}
     </Row>
     <Row>
@@ -105,10 +106,10 @@ const Cart = () => {
     </Col>
     </Row> 
     <div>
-        <form onSubmit={manejarCompra}>
-        <input onChange={e=>setNombre(e.target.value)} type="text" placeholder="Nombre" value={nombre}/>
-        <input onChange={e=>setTelefono(e.target.value)} type="text" placeholder="Telefono" value={telefono}/>
-        <input onChange={e=>setEmail(e.target.value)} type="text" placeholder="E-mail" value={email}/>
+        <form  onSubmit={manejarCompra}>
+        <input style={{color:"azure"}} onChange={e=>setNombre(e.target.value)} type="text" placeholder="Nombre" value={nombre}/>
+        <input style={{color:"azure"}} onChange={e=>setTelefono(e.target.value)} type="text" placeholder="Telefono" value={telefono}/>
+        <input style={{color:"azure"}} onChange={e=>setEmail(e.target.value)} type="text" placeholder="E-mail" value={email}/>
         <button>Comprar</button>
         </form>
     </div>

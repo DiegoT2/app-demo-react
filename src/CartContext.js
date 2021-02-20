@@ -34,6 +34,7 @@ const CartProvider = ({children}) => {
                 name: products.titulo,
                 image: products.imagen,
                 price: products.precio,
+                stock: products.stock,
                 amount: newCant
             } 
             const oldCart = cartList.filter(item => item.id != id)  
@@ -45,6 +46,7 @@ const CartProvider = ({children}) => {
                 name: item.titulo,
                 image: item.imagen,
                 price: item.precio,
+                stock: item.stock,
                 amount: contador
             }
             setCartList([...cartList, newItem])
